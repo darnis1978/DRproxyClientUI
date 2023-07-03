@@ -1,0 +1,55 @@
+﻿<Window x:Class="VRP_POC_VirtualPrinter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VRP_POC_VirtualPrinter"
+        mc:Ignorable="d"
+        Title="MOCK for printer/POS" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Label Grid.Row="1"  FontSize="14">
+            Sample Receipt:
+        </Label>
+        <StackPanel Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Stretch" Orientation="Horizontal">
+            <TextBlock x:Name="tblkReceipt_json"  HorizontalAlignment="Stretch" Padding="20 10"   TextWrapping="Wrap" Height="Auto" Width="500" >
+            </TextBlock>
+            <Image x:Name="imgQrCode" Height="Auto" Width="200" VerticalAlignment="Stretch"  HorizontalAlignment="Left">
+            </Image>    
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal" >
+            <Button x:Name="btnConnect" HorizontalAlignment="Right" Width="150" Margin="10,10,0,10" VerticalAlignment="Stretch" Click="btnReceipt_1_Click">
+                POS Connect to Server
+            </Button>
+            <Button x:Name="btnSendRecipt" HorizontalAlignment="Right" Width="150" Margin="10,10,0,10" VerticalAlignment="Stretch" IsEnabled="False" Click="btnSendRecipt_Click">
+                Send Receipt 
+            </Button>
+            <Label VerticalAlignment="Center" Width="250" HorizontalContentAlignment="Right" Content="Printer identifier" FontSize="16">
+            </Label>
+            <TextBox x:Name="edtPrinterIdentifier" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="0 0" Width="50" FontSize="16" TextChanged="edtPrinterIdentifier_TextChanged">
+                1
+            </TextBox>
+        </StackPanel>
+        <!--<ScrollViewer Grid.Row="3" Margin="20" MaxHeight="200"
+                      VerticalScrollBarVisibility="Auto">
+            
+           <ListBox x:Name="messages" HorizontalAlignment="Stretch"
+                      Padding="20 10" BorderThickness="0" /> -->
+        <Label Grid.Row="4" FontSize="14">
+            Log Output:
+        </Label>
+        <RichTextBox x:Name="messages" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0" VerticalScrollBarVisibility="Auto"  
+                      Margin="10 10 10 10">
+            </RichTextBox>
+        <!--</ScrollViewer> -->
+     </Grid>
+</Window>
